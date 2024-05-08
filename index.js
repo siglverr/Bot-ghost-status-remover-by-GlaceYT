@@ -1,20 +1,3 @@
-/**
- ██████╗░████████╗██╗░░██╗           
- ██╔══██╗╚══██╔══╝╚██╗██╔╝          
- ██████╔╝░░░██║░░░░╚███╔╝░          
- ██╔══██╗░░░██║░░░░██╔██╗░          
- ██║░░██║░░░██║░░░██╔╝╚██╗          
- ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-  GIT : https://github.com/RTX-GAMINGG/Bot-ghost-status-remover-by-RTX
-  DISCORD SERVER : https://discord.gg/FUEHs7RCqz
-  YOUTUBE : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
- * **********************************************
- *   Code by RTX GAMING
- * **********************************************
- */
-
-
-
 const { Client, GatewayIntentBits, ActivityType, TextChannel } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
@@ -31,12 +14,12 @@ app.get('/', (req, res) => {
   res.send('YaY Your Bot Status Changed✨');
 });
 app.listen(port, () => {
-  console.log(`🔗 Listening to RTX: http://localhost:${port}`);
-  console.log(`🔗 Powered By RTX`);
+  console.log(`🔗 Listening to BRICE: http://localhost:${port}`);
+  console.log(`🔗 Powered By BRICE`);
 });
 
 
-const statusMessages = ["PLAYING","MUSIC"];
+const statusMessages = [",💲AZURE STORE","✨CONFIVAEL","gg/azurestores"];
 
 
 let currentIndex = 0;
@@ -46,27 +29,17 @@ async function login() {
   try {
     await client.login(process.env.TOKEN);
     console.log(`\x1b[36m%s\x1b[0m`, `|    🐇 Logged in as ${client.user.tag}`);
+    startStatusUpdateLoop(); // Inicia o loop de atualização do status após o login
   } catch (error) {
     console.error('Failed to log in:', error);
     process.exit(1);
   }
 }
 
-/**
- ██████╗░████████╗██╗░░██╗           
- ██╔══██╗╚══██╔══╝╚██╗██╔╝          
- ██████╔╝░░░██║░░░░╚███╔╝░          
- ██╔══██╗░░░██║░░░░██╔██╗░          
- ██║░░██║░░░██║░░░██╔╝╚██╗          
- ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-GIT : https://github.com/RTX-GAMINGG/Bot-ghost-status-remover-by-RTX
-  DISCORD SERVER : https://discord.gg/FUEHs7RCqz
-  YOUTUBE : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
- * **********************************************
- *   Code by RTX GAMING
- * **********************************************
- */
-
+function startStatusUpdateLoop() {
+  updateStatusAndSendMessages(); // Atualiza o status e envia mensagens imediatamente após o login
+  setInterval(updateStatusAndSendMessages, 10000); // Define um intervalo para atualizar o status e enviar mensagens a cada 10 segundos
+}
 
 function updateStatusAndSendMessages() {
   const currentStatus = statusMessages[currentIndex];
@@ -91,29 +64,17 @@ function updateStatusAndSendMessages() {
 }
 
 client.once('ready', () => {
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ✅ Bot is ready as ${client.user.tag}`);
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ✨HAPPY NEW YEAR MY DEAR FAMILY`);
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ❤️WELCOME TO 2024`);
-  updateStatusAndSendMessages();
+  console.log(`\x1b[36m%s\x1b[0m`, `|    ✅ O bot está pronto como ${client.user.tag}`);
+  console.log(`\x1b[36m%s\x1b[0m`, `|    ✨CONFIVAEL`);
+  console.log(`\x1b[36m%s\x1b[0m`, `|    ❤️AZURE STORE`);
+  login();
+});
 
-  setInterval(() => {
-    updateStatusAndSendMessages();
-  }, 10000);
+// Comando para iniciar manualmente o loop de atualização do status
+client.on('message', (message) => {
+  if (message.content === '!startstatusloop') {
+    startStatusUpdateLoop();
+  }
 });
 
 login();
-
-/**
- ██████╗░████████╗██╗░░██╗           
- ██╔══██╗╚══██╔══╝╚██╗██╔╝          
- ██████╔╝░░░██║░░░░╚███╔╝░          
- ██╔══██╗░░░██║░░░░██╔██╗░          
- ██║░░██║░░░██║░░░██╔╝╚██╗          
- ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-GIT : https://github.com/RTX-GAMINGG/Bot-ghost-status-remover-by-RTX
-  DISCORD SERVER : https://discord.gg/FUEHs7RCqz
-  YOUTUBE : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
- * **********************************************
- *   Code by RTX GAMING
- * **********************************************
- */
