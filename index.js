@@ -36,7 +36,7 @@ app.listen(port, () => {
 });
 
 
-const statusMessages = ["PLAYING","MUSIC"];
+const statusMessages = ["AZURE STORE","CONFIAVEL","gg/azurestores"];
 
 
 let currentIndex = 0;
